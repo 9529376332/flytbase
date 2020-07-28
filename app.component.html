@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <button (click)="addBox()" type="button">Add Box</button>
+    <div>Use Keyboard to move Box
+    <br />
+    <button>&uarr;</button> Move Up
+    <br />
+    <button>&darr;</button> Move Down
+    <br />
+    <button>&larr;</button> Move Left
+    <br />
+    <button>&rarr;</button> Move Right
+    </div>
+    <div>
+      <div style="margin: 20px;" #fence (keydown) ="moveBox($event)">
+        <canvas #box *ngFor="let box of boxes; index as indexofElement" [ngStyle]="box.style" [id]="box.id" (click) ="selectBox(indexofElement)"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
